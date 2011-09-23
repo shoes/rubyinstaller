@@ -20,6 +20,15 @@ require 'config/ruby_installer'
 # DevKit configuration data
 require 'config/devkit'
 
+# Pull in any other configuration files from config/
+Dir.entries(File.expand_path(File.join(File.dirname(__FILE__), 'config'))).map do |filename|
+  File.join('config', filename)
+end.reject do |filename|
+  ['config/.', 'config/..', 'config/ruby_installer.rb', 'config/devkit.rb'].include?(filename) || File.directory?(filename)
+end.each do |filename|
+  require filename
+end
+
 # Added download task from buildr
 require 'rake/downloadtask'
 require 'rake/extracttask'
