@@ -43,21 +43,25 @@ module Shoes
   )
 
   LibJpeg = OpenStruct.new(
-  :url => "http://www.ijg.org/",
-  :version => '8b',
+  :url => "http://www.ijg.org/files",
+  #:url => "http://www.ijg.org/",
+  :version => '8c',
   :target => "sandbox/libjpeg",
   :files => [
-    'libjpeg_v8_bin_lib_include.zip'
+    'jpegsr8c.zip',
+    #'libjpeg_v8_bin_lib_include.zip'
   ]
   )
 
   LibUnGif = OpenStruct.new(
-  :url => "http://easynews.dl.sourceforge.net/gnuwin32",
+  :url => "http://gnuwin32.sourceforge.net/downlinks",
   :version => '',
   :target => 'sandbox/libungif',
   :files => [
-    'libungif-4.1.4-bin.zip',
-    'libungif-4.1.4-lib.zip'
+    'libungif-bin-zip.php',
+    'libungif-lib-zip.php'
+#    'libungif-4.1.4-bin.zip',
+#    'libungif-4.1.4-lib.zip'
   ]
   )
 
