@@ -54,14 +54,12 @@ module Shoes
   )
 
   LibUnGif = OpenStruct.new(
-  :url => "http://gnuwin32.sourceforge.net/downlinks",
+  :url => "http://downloads.sourceforge.net/gnuwin32",
   :version => '',
   :target => 'sandbox/libungif',
   :files => [
-    'libungif-bin-zip.php',
-    'libungif-lib-zip.php'
-#    'libungif-4.1.4-bin.zip',
-#    'libungif-4.1.4-lib.zip'
+    'libungif-4.1.4-bin.zip',
+    'libungif-4.1.4-lib.zip'
   ]
   )
 
