@@ -23,7 +23,7 @@ module Shoes
 
 
   Cairo = OpenStruct.new(
-  :url => "http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies",
+  :url => "http://www.rin-shun.com/shoes/MinGW/downloads",
   :version => '1.8.10-1',
   :target => 'sandbox/cairo',
   :files => [
@@ -33,7 +33,7 @@ module Shoes
   )
 
   Glib = OpenStruct.new(
-  :url => "http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.24",
+  :url => "http://www.rin-shun.com/shoes/MinGW/downloads",
   :version => '2.24.0-2',
   :target => 'sandbox/glib',
   :files => [
@@ -43,8 +43,7 @@ module Shoes
   )
 
   LibJpeg = OpenStruct.new(
-  :url => "http://www.ijg.org/files",
-  #:url => "http://www.ijg.org/",
+  :url => "http://www.rin-shun.com/shoes/MinGW/downloads",
   :version => '8c',
   :target => "sandbox/libjpeg",
   :files => [
@@ -54,7 +53,7 @@ module Shoes
   )
 
   LibUnGif = OpenStruct.new(
-  :url => "http://downloads.sourceforge.net/gnuwin32",
+  :url => "http://www.rin-shun.com/shoes/MinGW/downloads",
   :version => '',
   :target => 'sandbox/libungif',
   :files => [
@@ -64,7 +63,7 @@ module Shoes
   )
 
   Pango = OpenStruct.new(
-  :url => "http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28",
+  :url => "http://www.rin-shun.com/shoes/MinGW/downloads",
   :version => '1.28.0-1',
   :target => 'sandbox/pango',
   :files => [
@@ -74,14 +73,14 @@ module Shoes
   )
 
   PortAudio = OpenStruct.new(
-  :url => "http://www.portaudio.com/archives",
+  :url => "http://www.rin-shun.com/shoes/MinGW/downloads",
   :target => 'sandbox/portaudio',
   :install_target => 'sandbox/port_audio',
   :files => ['pa_snapshot.tgz']
   )
 
   Sqlite3 = OpenStruct.new(
-  :url => "http://www.sqlite.org",
+  :url => "http://www.rin-shun.com/shoes/MinGW/downloads",
   :target => 'sandbox/sqlite3',
   :files => [
     'sqlitedll-3_6_23_1.zip',
@@ -90,7 +89,7 @@ module Shoes
   )
 
   Winhttp = OpenStruct.new(
-  :url => "http://www.holymonkey.com/shoes-packages",
+  :url => "http://www.rin-shun.com/shoes/MinGW/downloads",
   :target => 'sandbox/winhttp',
   :files => ['winhttp.zip']
   )
