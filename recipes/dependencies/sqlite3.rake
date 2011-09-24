@@ -36,6 +36,10 @@ namespace(:dependencies) do
       # no op
     end
     task :prepare => [:extract, pt]
+    
+    task :link_dll => [:prepare] do
+      sh "dlltool --dllname #{package.target}/sqlite3.dll --def #{package.target}/sqlite3.def --output-lib #{package.target}/sqlite3.lib"
+    end
 
     task :activate => [:prepare] do
       puts "Activating sqlite3 version #{package.version}"
@@ -48,5 +52,6 @@ task :sqlite3 => [
   'dependencies:sqlite3:download',
   'dependencies:sqlite3:extract',
   'dependencies:sqlite3:prepare',
+  'dependencies:sqlite3:link_dll',
   'dependencies:sqlite3:activate'
 ]
