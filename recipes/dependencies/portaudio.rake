@@ -31,11 +31,47 @@ namespace(:dependencies) do
     end
     task :extract => [:extract_utils, :download, package.target, et]
 
-    # portaudio needs some relocation of files ??
+    # portaudio needs some relocation of files... unlike every other
+    # dependency, this one puts its files into
+    # package.target/portaudio instead of plain 'ol package.target;
+    # to make it more like everyone else, the prepare step should
+    # move those files up one directory level and delete the
+    # portaudio subdir
     pt = checkpoint(:portaudio, :prepare) do
-      # no op
+      cd File.join(RubyInstaller::ROOT, package.target) do
+        subdir_files = File.join('portaudio', '*')
+
+        # can't get these two lines to work
+        # to test configure & compile too, make sure to uncomment
+        # the lines at the very bottom of this file
+        #mv subdir_files, '.'
+        #rm_rf "portaudio"
+      end
     end
     task :prepare => [:extract, pt]
+
+    # Prepare sources for compilation
+    ct = checkpoint(:portaudio, :configure) do
+      install_target = File.join(RubyInstaller::ROOT, package.install_target)
+      cd package.target do
+        sh "sh -c \"./configure --prefix=#{install_target}\""
+      end
+    end
+    task :configure => [:prepare, :compiler, ct]
+
+    mt = checkpoint(:portaudio, :make) do
+      cd package.target do
+        sh "make"
+      end
+    end
+    task :compile => [:configure, mt]
+
+    it = checkpoint(:portaudio, :install) do
+      cd package.target do
+        sh "make install"
+      end
+    end
+    task :install => [:compile, it]
 
     task :activate => [:prepare] do
       puts "Activating portaudio version #{package.version}"
@@ -48,5 +84,8 @@ task :portaudio => [
   'dependencies:portaudio:download',
   'dependencies:portaudio:extract',
   'dependencies:portaudio:prepare',
+#  'dependencies:portaudio:configure',
+#  'dependencies:portaudio:compile',
+#  'dependencies:portaudio:install',
   'dependencies:portaudio:activate'
 ]
