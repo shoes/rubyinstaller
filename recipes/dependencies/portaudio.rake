@@ -39,13 +39,9 @@ namespace(:dependencies) do
     # portaudio subdir
     pt = checkpoint(:portaudio, :prepare) do
       cd File.join(RubyInstaller::ROOT, package.target) do
-        subdir_files = File.join('portaudio', '*')
-
-        # can't get these two lines to work
-        # to test configure & compile too, make sure to uncomment
-        # the lines at the very bottom of this file
-        #mv subdir_files, '.'
-        #rm_rf "portaudio"
+        subdir_files = Dir.glob("portaudio/*")
+        FileUtils.mv subdir_files, '.', :force => true
+        rm_rf "portaudio"
       end
     end
     task :prepare => [:extract, pt]
@@ -84,8 +80,8 @@ task :portaudio => [
   'dependencies:portaudio:download',
   'dependencies:portaudio:extract',
   'dependencies:portaudio:prepare',
-#  'dependencies:portaudio:configure',
-#  'dependencies:portaudio:compile',
-#  'dependencies:portaudio:install',
+  'dependencies:portaudio:configure',
+  'dependencies:portaudio:compile',
+  'dependencies:portaudio:install',
   'dependencies:portaudio:activate'
 ]
