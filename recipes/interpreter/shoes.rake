@@ -52,12 +52,12 @@ namespace(:interpreter) do
     task :dependencies => package.dependencies
     
     task :configure => [package.build_target, :compiler, :dependencies] do
-      # no op?
+      package.build_target = File.expand_path(package.checkout_target)
     end
 
     task :compile => [:configure, :compiler, :dependencies] do
       cd package.build_target do
-        sh "rake"
+        sh "rake win32:build"
       end
     end
 
@@ -75,7 +75,7 @@ task :shoes => [
   'interpreter:shoes:extract',
   'interpreter:shoes:prepare',
   'interpreter:shoes:configure',
-#  'interpreter:shoes:compile',
+  'interpreter:shoes:compile',
 #  'interpreter:shoes:install'
 ]
 

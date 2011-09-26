@@ -6,7 +6,7 @@ module Shoes
   :release => 'tophat',
   #:version => 'r1134',
   :url => 'http://shoooes.net/dist',
-  :checkout => 'git://github.com/shoes/shoes',
+  :checkout => 'git://github.com/chuckremes/shoes',
   :checkout_target => 'sandbox/shoes',
   :target => 'sandbox/shoes',
 
