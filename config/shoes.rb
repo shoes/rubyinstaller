@@ -75,7 +75,7 @@ module Shoes
   PortAudio = OpenStruct.new(
   :url => "http://www.rin-shun.com/shoes/MinGW/downloads",
   :target => 'sandbox/src-portaudio',
-  :install_target => 'sandbox/port_audio',
+  :install_target => 'sandbox/portaudio',
   :files => ['pa_snapshot.tgz']
   )
 
