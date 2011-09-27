@@ -3,8 +3,8 @@ def append_env(name, value, delim=';')
   #sane_value = value.gsub(File::SEPARATOR, File::ALT_SEPARATOR)
   sane_value = value
   old_value = ENV[env_name] || ''
-  unless old_value.include?(sane_value)
-    ENV[env_name] = "#{sane_value}#{delim}" + old_value
+  unless old_value.include?(sane_value) || old_value.include?(value)
+    ENV[env_name] = "#{value}#{delim}" + old_value
   end
 end
 
