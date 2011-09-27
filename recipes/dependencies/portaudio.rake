@@ -48,7 +48,7 @@ namespace(:dependencies) do
 
     # Prepare sources for compilation
     ct = checkpoint(:portaudio, :configure) do
-      install_target = File.join(RubyInstaller::ROOT, package.install_target)#.gsub('/', '\\\\\\/')
+      install_target = File.join(RubyInstaller::ROOT, package.install_target)
       cd package.target do
         sh "sh -c \"./configure --prefix=#{install_target}\""
       end
