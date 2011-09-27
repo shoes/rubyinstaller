@@ -47,8 +47,7 @@ module Shoes
   :version => '8c',
   :target => "sandbox/libjpeg",
   :files => [
-    'jpegsr8c.zip',
-    #'libjpeg_v8_bin_lib_include.zip'
+    'libjpeg_v8_bin_lib_include.zip'
   ]
   )
 
